@@ -15,14 +15,13 @@ body {
 
     /* HEADER */
 
-nav#burger {
+#burger {
     display: flex;
     justify-content: center;
 }
 
-nav#burger>ul {
+#burger>ul {
     display: flex;
-    flex-direction: row;
     justify-content: space-evenly;
     list-style: none;
     width: 50%;
@@ -30,11 +29,11 @@ nav#burger>ul {
     margin-top: 40px;
 }
 
-nav#burgerul>li {
+#burgerul>li {
     padding: 10px;
 }
 
-nav#burger>ul>li>a {
+#burger>ul>li>a {
     font-family: 'Montserrat', sans-serif;
     text-decoration: none;
     font-size: 1.4em;
@@ -42,20 +41,20 @@ nav#burger>ul>li>a {
     color: #343434;
 }
 
-nav#burger>ul>li>a:hover {
+#burger>ul>li>a:hover {
     color: #ff9391;
 }
 
-nav#burger>ul>li>a>img {
+#burger>ul>li>a>img {
     height: 27px;
     width: 27px;
 }
 
-nav#burger>input[type="checkbox"] {
+#burger>input[type="checkbox"] {
     display: none;
 }
 
-nav#burger>label {
+#burger>label {
     padding: 10px;
 }
 
@@ -113,6 +112,10 @@ main {
     text-transform: uppercase;
     margin-bottom: 20px;
     letter-spacing: .15em;
+}
+
+.content>p {
+    padding-bottom: 15px;
 }
 
 .content>p:nth-child(4) {
@@ -185,6 +188,107 @@ p.footer {
 
     /* RESPONSIVE - TABLETTE */
 
-@media screen and (max-width: 708px) {
+@media screen and (max-width: 768px) {
+    main {
+        margin-top: 30px;
+    }
     
+    .container {
+        width: 100%;
+        flex-direction: column;
+        padding: 0 50px;
+    }
+
+    .img-container {
+        width: 90%;
+    }
+
+    .content {
+        width: 100%;
+        padding-top: 10px;
+        margin-left: 0;
+    }
+
+    #burger>ul {
+        width: 100%;
+    }
+
+    .content>h1, .content>h2 {
+        text-align: center;
+    }
+
+    footer {
+        justify-content: center;
+    }
+}
+
+    /* RESPONSIVE - MOBILE */
+
+@media screen and (max-width: 380px) {
+    .container {
+        padding: 0 30px;
+    }
+
+    .img-container {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .container>img {
+        margin-left: -15px;
+    }
+
+    #burger>ul>li>a {
+        font-size: 1em;
+    }   
+
+    .content>p {
+        text-align: justify;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    main {
+        margin-top: 80px;
+    }
+
+    #burger {
+        justify-content: left;
+        z-index: 5;
+        background: #ff9391;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        box-shadow: 0px 0px 6px rgba(0,0,0,.5);
+    }
+
+    nav#burger>ul {
+        flex-direction: column;
+    }
+
+    #burger>ul>li>a:hover {
+        color: #ffdf78;
+    }
+
+    #burger input[type="checkbox"]:not(:checked) ~ ul {
+        display: none;
+    }
+
+    #burger input[type="checkbox"]:checked ~ ul {
+        display: flex;
+    }
+
+    #burger input[type="checkbox"] + label:before {
+        font-family: FontAwesome;
+        font-size: 30px;
+        color: #ffdf78;
+    }
+
+    #burger input[type="checkbox"]:not(:checked) + label:before {
+        content: "\f0c9";
+    }
+
+    #burger input[type="checkbox"]:checked + label:before {
+        content: "\f00d";
+    }
 }
